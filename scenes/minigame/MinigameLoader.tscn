@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8kmkexhw4raq"]
+
+[ext_resource type="Script" uid="uid://hbhs3kfq7d2l" path="res://scenes/minigame/MinigameLoader.gd" id="1_lsfa8"]
+
+[node name="MinigameLoader" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lsfa8")

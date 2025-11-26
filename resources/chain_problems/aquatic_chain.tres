@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ChainProblem" load_steps=2 format=3 uid="uid://kxrqa6sxrqgi"]
+
+[ext_resource type="Script" uid="uid://b4xuc637pi40o" path="res://scripts/resources/chain_problem.gd" id="1_edje2"]
+
+[resource]
+script = ExtResource("1_edje2")

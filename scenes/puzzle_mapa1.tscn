@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs25d5ehwm5w5"]
+
+[ext_resource type="Script" uid="uid://l56pis5lqhh2" path="res://scripts/controllers/jigsaw_controller.gd" id="1_7waa5"]
+[ext_resource type="Texture2D" uid="uid://dcp8roo1gojwy" path="res://art folder/menu/minigame-blue.png" id="1_dkfev"]
+[ext_resource type="Texture2D" uid="uid://ciebcpu5alwdd" path="res://assets/sprites/Arrow.png" id="4_4w7i2"]
+[ext_resource type="PackedScene" uid="uid://x0unfdv85led" path="res://scenes/components/dropable_space.tscn" id="5_mwc43"]
+[ext_resource type="PackedScene" uid="uid://bbs2ngdxw6q88" path="res://scenes/components/object_draggable.tscn" id="6_6uj23"]
+
+[sub_resource type="SystemFont" id="SystemFont_o5vx6"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk5rw"]
+bg_color = Color(0.831373, 0.952941, 0.952941, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PuzzleMapa1" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7waa5")
+success_color = Color(0, 1, 0, 1)
+failed_color = Color(1, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.705882)
+
+[node name="Box" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 75.0
+offset_top = 50.0
+offset_right = 949.0
+offset_bottom = 590.0
+texture = ExtResource("1_dkfev")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Title" type="Label" parent="Box"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 27.0
+offset_bottom = 89.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_o5vx6")
+theme_override_font_sizes/font_size = 50
+text = "monte a cadeia alimentar !"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Panel" type="Panel" parent="Box"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501
+anchor_top = 0.587
+anchor_right = 0.503
+anchor_bottom = 0.587
+offset_left = -407.874
+offset_top = -219.98
+offset_right = 406.378
+offset_bottom = 201.02
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mk5rw")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(272, 272)
+texture = ExtResource("4_4w7i2")
+
+[node name="Arrow3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(608, 272)
+texture = ExtResource("4_4w7i2")
+
+[node name="Arrow2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(776, 272)
+texture = ExtResource("4_4w7i2")
+
+[node name="Arrow4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(440, 272)
+texture = ExtResource("4_4w7i2")
+
+[node name="Dropable" type="Node" parent="."]
+
+[node name="DropableSpace" parent="Dropable" instance=ExtResource("5_mwc43")]
+position = Vector2(184, 272)
+
+[node name="DropableSpace2" parent="Dropable" instance=ExtResource("5_mwc43")]
+position = Vector2(352, 272)
+
+[node name="DropableSpace3" parent="Dropable" instance=ExtResource("5_mwc43")]
+position = Vector2(528, 272)
+
+[node name="DropableSpace4" parent="Dropable" instance=ExtResource("5_mwc43")]
+position = Vector2(688, 272)
+
+[node name="DropableSpace5" parent="Dropable" instance=ExtResource("5_mwc43")]
+position = Vector2(848, 272)
+
+[node name="Draggable" type="Node" parent="."]
+
+[node name="ObjectDraggable" parent="Draggable" instance=ExtResource("6_6uj23")]
+position = Vector2(247, 433)
+
+[node name="ObjectDraggable2" parent="Draggable" instance=ExtResource("6_6uj23")]
+position = Vector2(657, 433)
+
+[node name="ObjectDraggable3" parent="Draggable" instance=ExtResource("6_6uj23")]
+position = Vector2(527, 433)
+
+[node name="ObjectDraggable4" parent="Draggable" instance=ExtResource("6_6uj23")]
+position = Vector2(777, 433)
+
+[node name="ObjectDraggable5" parent="Draggable" instance=ExtResource("6_6uj23")]
+position = Vector2(387, 433)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 496.0
+offset_right = 543.0
+offset_bottom = 527.0
+mouse_default_cursor_shape = 2
+text = "VERIFICAR"

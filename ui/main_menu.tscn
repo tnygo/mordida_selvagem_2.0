@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://xfrhwslffrdc"]
+
+[ext_resource type="Script" uid="uid://c0cwojbpnuc63" path="res://ui/main_menu.gd" id="1_lkrum"]
+[ext_resource type="Texture2D" uid="uid://c8vds6v6db0mo" path="res://art folder/menu/menu-background.png" id="2_eougb"]
+
+[sub_resource type="SystemFont" id="SystemFont_m0dl5"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_8lqxl"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjt3q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idbvk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjcuk"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lkrum")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.168627, 0.313726, 0.0235294, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 100
+
+[node name="ColorMenu" type="NinePatchRect" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_eougb")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="MarginContainer/ColorMenu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 90.0
+offset_bottom = 159.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_m0dl5")
+theme_override_font_sizes/font_size = 50
+text = "MORDIDA SELVAGEM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -223.0
+offset_right = 90.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="MarginContainer/ColorMenu/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = SubResource("SystemFont_8lqxl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hjt3q")
+text = "Iniciar Jogo"
+
+[node name="OptionButton" type="Button" parent="MarginContainer/ColorMenu/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = SubResource("SystemFont_8lqxl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_idbvk")
+text = "Tutorial"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/ColorMenu/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = SubResource("SystemFont_8lqxl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjcuk")
+text = "Sair do Jogo"

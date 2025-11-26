@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://losescreen"]
+
+[ext_resource type="Script" uid="uid://5r4tw801jks8" path="res://scripts/ui/WinLoseScreen.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://mfl1vdpkg3it" path="res://assets/sounds/sfx_lost.mp3" id="2"]
+[ext_resource type="FontFile" uid="uid://bc2b02432vkgl" path="res://fonts/PressStart2P-Regular.ttf" id="3"]
+[ext_resource type="Texture2D" uid="uid://cw8klunfkughy" path="res://assets/mascot/mord_assustado.png" id="4"]
+
+[node name="LoseScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+menu_scene_path = "res://scenes/menus/main_menu.tscn"
+mascot_path = NodePath("Body/MascotRow/MascotBox/Mascot")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.79595137, 0, 0.1647884, 1)
+
+[node name="Body" type="VBoxContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 56
+text = "OPS!"
+horizontal_alignment = 1
+
+[node name="MascotRow" type="HBoxContainer" parent="Body"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MascotBox" type="Control" parent="Body/MascotRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 360)
+layout_mode = 2
+
+[node name="Mascot" type="TextureRect" parent="Body/MascotRow/MascotBox"]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Subtitle" type="Label" parent="Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 26
+text = "VAMOS TENTAR MAIS UMA VEZ?"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="Body/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "TENTAR NOVAMENTE"
+
+[node name="MenuButton" type="Button" parent="Body/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "VOLTAR AO MENU"
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+autoplay = true

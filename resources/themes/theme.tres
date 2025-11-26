@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ChainTheme" load_steps=4 format=3 uid="uid://ck3w7s3ta7dlj"]
+
+[ext_resource type="Script" uid="uid://sh467qiak0su" path="res://scripts/resources/theme.gd" id="1_jqvb1"]
+[ext_resource type="Resource" uid="uid://kxrqa6sxrqgi" path="res://resources/chain_problems/aquatic_chain.tres" id="2_1k3fn"]
+[ext_resource type="Script" uid="uid://b4xuc637pi40o" path="res://scripts/resources/chain_problem.gd" id="2_5m3rg"]
+
+[resource]
+script = ExtResource("1_jqvb1")
+theme = Array[ExtResource("2_5m3rg")]([ExtResource("2_1k3fn"), null])

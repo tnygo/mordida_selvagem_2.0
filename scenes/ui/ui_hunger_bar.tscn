@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://dijhol7k2xt1u"]
+
+[ext_resource type="Script" path="res://scenes/ui/ui_hunger_bar.gd" id="1_h468j"]
+[ext_resource type="Script" path="res://scenes/ui/life.gd" id="2_5jink"]
+[ext_resource type="Texture2D" uid="uid://c8ejq7yr403tj" path="res://assets/sprites/Heart.png" id="2_gdh0l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tndbu"]
+bg_color = Color(0.114897, 0.114897, 0.114897, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bewjt"]
+bg_color = Color(0.811765, 0.6, 0.117647, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="SystemFont" id="SystemFont_2o78s"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[node name="UILayer" type="CanvasLayer"]
+script = ExtResource("1_h468j")
+
+[node name="HungerBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(200, 20)
+offset_left = 9.0
+offset_top = 25.0
+offset_right = 209.0
+offset_bottom = 55.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tndbu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bewjt")
+show_percentage = false
+
+[node name="HungerLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 25.0
+offset_right = 66.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = SubResource("SystemFont_2o78s")
+theme_override_font_sizes/font_size = 18
+text = "fome"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="LifesLabel" type="Label" parent="."]
+offset_left = 780.0
+offset_top = 25.0
+offset_right = 830.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = SubResource("SystemFont_2o78s")
+theme_override_font_sizes/font_size = 18
+text = "vidas: "
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("2_5jink")
+
+[node name="LifesHearts" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.904
+anchor_top = 0.039
+anchor_right = 0.904
+anchor_bottom = 0.039
+offset_left = 798.84
+offset_top = 23.44
+offset_right = 830.84
+offset_bottom = 55.44
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gdh0l")
+expand_mode = 2
+stretch_mode = 1

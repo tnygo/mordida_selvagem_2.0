@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://br5i8pt6u62u"]
+
+[ext_resource type="Script" path="res://scripts/resources/question.gd" id="1_rnlid"]
+
+[resource]
+script = ExtResource("1_rnlid")
+question_statement = "Quem era o produtor desta cadeia alimentar?"
+options = Array[String](["Foca", "Pinguim", "Peixe", "Algas"])
+correct_answer = "Algas"

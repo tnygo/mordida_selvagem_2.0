@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://chejsy6jmqslt"]
+
+[ext_resource type="Script" uid="uid://5r4tw801jks8" path="res://scripts/ui/WinLoseScreen.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://mfl1vdpkg3it" path="res://assets/sounds/sfx_lost.mp3" id="2"]
+[ext_resource type="FontFile" uid="uid://bc2b02432vkgl" path="res://fonts/PressStart2P-Regular.ttf" id="3"]
+[ext_resource type="Texture2D" uid="uid://cw8klunfkughy" path="res://assets/mascot/mord_assustado.png" id="4"]
+
+[node name="LoseScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+menu_scene_path = "res://scenes/menus/main_menu.tscn"
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0.25, 0, 1)
+
+[node name="Center#Body" type="VBoxContainer" parent="."]
+layout_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Center_Body#Title" type="Label" parent="."]
+layout_mode = 0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 56
+text = "TENTE NOVAMENTE!"
+horizontal_alignment = 1
+
+[node name="Center_Body#MascotBox" type="Control" parent="."]
+custom_minimum_size = Vector2(360, 360)
+anchors_preset = 0
+size_flags_vertical = 0
+
+[node name="Center_Body_MascotBox#Mascot" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4")
+stretch_mode = 5
+
+[node name="Center_Body#Subtitle" type="Label" parent="."]
+layout_mode = 0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 26
+text = "VOCÊ FOI DERROTADO!"
+horizontal_alignment = 1
+
+[node name="Center_Body#Buttons" type="HBoxContainer" parent="."]
+layout_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Center_Body_Buttons#RetryButton" type="Button" parent="."]
+layout_mode = 0
+text = "TENTAR NOVAMENTE"
+
+[node name="Center_Body_Buttons#MenuButton" type="Button" parent="."]
+layout_mode = 0
+text = "VOLTAR AO MENU"
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+autoplay = true

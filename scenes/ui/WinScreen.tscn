@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://winscreen"]
+
+[ext_resource type="Script" uid="uid://5r4tw801jks8" path="res://scripts/ui/WinLoseScreen.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://b5m8sn5o0evx1" path="res://assets/sounds/sfx_win.mp3" id="2"]
+[ext_resource type="FontFile" uid="uid://bc2b02432vkgl" path="res://fonts/PressStart2P-Regular.ttf" id="2_dwuwy"]
+[ext_resource type="Texture2D" uid="uid://bclibufofi127" path="res://assets/mascot/mord_feliz.png" id="3"]
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+menu_scene_path = "uid://dhwjaf6omi0a7"
+mascot_path = NodePath("Center/Body/MascotBox/Mascot")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0.35, 0, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Body" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="Center/Body"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dwuwy")
+theme_override_font_sizes/font_size = 56
+text = "PARABÉNS!"
+horizontal_alignment = 1
+
+[node name="MascotBox" type="Control" parent="Center/Body"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 360)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Mascot" type="TextureRect" parent="Center/Body/MascotBox"]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Subtitle" type="Label" parent="Center/Body"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dwuwy")
+theme_override_font_sizes/font_size = 26
+text = "VOCÊ VENCEU A FASE!"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Center/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="Center/Body/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "JOGAR NOVAMENTE"
+
+[node name="MenuButton" type="Button" parent="Center/Body/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "VOLTAR AO MENU"
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+autoplay = true

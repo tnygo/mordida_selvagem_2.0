@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://drccg31v7guxq"]
+
+[ext_resource type="Texture2D" uid="uid://bclibufofi127" path="res://assets/mascot/mord_feliz.png" id="1_b4ndb"]
+[ext_resource type="Script" uid="uid://5r4tw801jks8" path="res://scripts/ui/WinLoseScreen.gd" id="1_ggvgb"]
+[ext_resource type="AudioStream" uid="uid://b5m8sn5o0evx1" path="res://assets/sounds/sfx_win.mp3" id="2_ggvgb"]
+[ext_resource type="AudioStream" uid="uid://mfl1vdpkg3it" path="res://assets/sounds/sfx_lost.mp3" id="5_f2bpv"]
+
+[node name="WinLoseScreen" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_ggvgb")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Panel" type="Panel" parent="Center"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(620, 420)
+layout_mode = 2
+
+[node name="Padding" type="MarginContainer" parent="Center/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel/Padding"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="Center/Panel/Padding/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Parabéns! Você venceu!"
+horizontal_alignment = 1
+
+[node name="Mascot" type="TextureRect" parent="Center/Panel/Padding/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+texture = ExtResource("1_b4ndb")
+stretch_mode = 5
+
+[node name="Buttons" type="HBoxContainer" parent="Center/Panel/Padding/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="Center/Panel/Padding/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+text = "Jogar novamente"
+
+[node name="MenuButton" type="Button" parent="Center/Panel/Padding/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="VictorySFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ggvgb")
+
+[node name="DefeatSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_f2bpv")

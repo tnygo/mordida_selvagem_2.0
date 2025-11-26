@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ChainTheme" load_steps=4 format=3 uid="uid://btogrien8otd0"]
+
+[ext_resource type="Script" uid="uid://sh467qiak0su" path="res://scripts/resources/theme.gd" id="1_o0hme"]
+[ext_resource type="Script" uid="uid://b4xuc637pi40o" path="res://scripts/resources/chain_problem.gd" id="2_kflnk"]
+
+[sub_resource type="Resource" id="Resource_o0hme"]
+script = ExtResource("2_kflnk")
+correct_chain = PackedStringArray("algas", "camarão", "peixe", "pinguim", "foca")
+texture_paths = PackedStringArray("res://assets/sprites/algas.png", "res://assets/sprites/camarão.png", "res://assets/sprites/peixe.png", "res://assets/sprites/Pinguim.png", "res://assets/sprites/Foca.png")
+metadata/_custom_type_script = "uid://b4xuc637pi40o"
+
+[resource]
+script = ExtResource("1_o0hme")
+theme = Array[ExtResource("2_kflnk")]([SubResource("Resource_o0hme")])
+metadata/_custom_type_script = "uid://sh467qiak0su"
